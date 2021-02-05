@@ -134,8 +134,17 @@ namespace Capstone
             Console.WriteLine($"Your change is {CurrentMoney:C2}\n");
             decimal tempCurrent = CurrentMoney * 100;
             string tempChange = (tempCurrent).ToString();
-            tempChange = tempChange.Substring(0, tempChange.Length - 3);
-            int change = int.Parse(tempChange);
+            int change;
+
+            if (tempCurrent == 0)
+            {
+                change = 0;
+            }
+            else
+            {
+                tempChange = tempChange.Substring(0, tempChange.Length - 3);
+                change = int.Parse(tempChange);
+            }
 
             int quarters = 0;
             int dimes = 0;
