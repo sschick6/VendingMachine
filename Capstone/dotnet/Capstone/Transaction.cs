@@ -61,7 +61,8 @@ namespace Capstone
                 {
                     CurrentMoney -= inventoryDict[productSelect].ItemPrice;
                     MachineBalance += inventoryDict[productSelect].ItemPrice;
-                    inventoryDict[productSelect].InventoryCount--;
+                    inventoryDict[productSelect].InventoryCount--;      //here decreasing inventory number by 1
+                    inventoryDict[productSelect].ItemSold++;            //at same point, documenting increase in items sold
                     Item a = inventoryDict[productSelect];
                     Console.WriteLine("Dispensing Item...");
                     Console.WriteLine($"\n{a.ItemName} {a.ItemPrice} and you have {CurrentMoney:C2} remaining");

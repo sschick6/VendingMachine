@@ -11,12 +11,18 @@ namespace Capstone
         public string ItemType { get; private set; }
         public int InventoryCount { get; set; }
 
+        public int ItemSold { get; set; } = 0;
+
+        public decimal ItemSales { get; private set; }
+
         public Item(string itemName, decimal itemPrice, string itemType, int inventoryCount)
         {
             ItemName = itemName;
             ItemPrice = itemPrice;
             ItemType = itemType;
             InventoryCount = inventoryCount;
+            
+            
         }
     }
 }

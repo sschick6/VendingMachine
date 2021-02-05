@@ -38,6 +38,10 @@ namespace Capstone
                 {
                     TextPrompts.MainMenuSelection1(inventoryDict);
                 }
+                else if (menuSelection == "4")
+                {
+                    SalesReport.LogSales(inventoryDict);    //pass dictionary into LogSales. LogSales loop through and churn out dictionary
+                }
                 else
                 {
                     Console.WriteLine("Invalid selection - please try again");
