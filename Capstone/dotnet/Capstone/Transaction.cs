@@ -40,7 +40,7 @@ namespace Capstone
             }
             else if (selection == "2") 
             {
-                Console.WriteLine("ItemCode Price Remaining");
+                Console.WriteLine("Item Code Price Remaining Item Name");
                 foreach (KeyValuePair<string, Item> things in inventoryDict)
                 {
                     decimal i = things.Value.ItemPrice;
@@ -48,11 +48,11 @@ namespace Capstone
                     string n = things.Value.ItemName;
                     if (invCount == 0)
                     {
-                        Console.WriteLine($"{things.Key}       ---- SOLD OUT");
+                        Console.WriteLine($"{things.Key}        ---- SOLD OUT");
                     }
                     else
                     {
-                        Console.WriteLine($"{things.Key}       {i}  {invCount} {n}");
+                        Console.WriteLine($"{things.Key}        {i}  {invCount}         {n}");
                     }
                 }
                 string productSelect = Console.ReadLine().ToUpper();
@@ -66,7 +66,7 @@ namespace Capstone
                     Item a = inventoryDict[productSelect];
                     Console.WriteLine("Dispensing Item...");
                     Console.WriteLine($"\n{a.ItemName} {a.ItemPrice} and you have {CurrentMoney:C2} remaining");
-                    TextPrompts.FunMessage(a.ItemType);
+                    a.FunMessage();
                     Console.ReadLine();
                     Console.Clear();
                     string purchaseCode = a.ItemName + " " + productSelect.ToUpper();
@@ -134,7 +134,6 @@ namespace Capstone
         {
             Console.WriteLine($"Your change is {CurrentMoney:C2}\n");
             decimal tempCurrent = CurrentMoney * 100;
-            string tempChange = (tempCurrent).ToString();
             int change;
 
             if (tempCurrent == 0)
@@ -143,8 +142,7 @@ namespace Capstone
             }
             else
             {
-                tempChange = tempChange.Substring(0, tempChange.Length - 3);
-                change = int.Parse(tempChange);
+                change = Convert.ToInt32(tempCurrent);
             }
 
             int quarters = 0;

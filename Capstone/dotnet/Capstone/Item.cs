@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Capstone
 {
-    class Item
+    abstract class Item
     {
         public string ItemName { get; private set; }
         public decimal ItemPrice { get; private set; }
@@ -21,8 +21,7 @@ namespace Capstone
             ItemPrice = itemPrice;
             ItemType = itemType;
             InventoryCount = inventoryCount;
-            
-            
         }
+        abstract public void FunMessage();
     }
 }

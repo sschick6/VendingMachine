@@ -14,6 +14,7 @@ namespace Capstone
             /// <summary>
             /// This method will create items from the inventory document
             /// </summary>
+            
             try
             {
                 string filePath = Directory.GetCurrentDirectory();
@@ -40,9 +41,27 @@ namespace Capstone
                         decimal itemPrice = decimal.Parse(temp[2]);
                         string itemType = temp[3];
                         int inventoryCount = 5;
-                        Item item = new Item(itemName, itemPrice, itemType, inventoryCount);
 
-                        inventoryDict.Add(itemRow, item);
+                        if(itemType == "Gum")
+                        {
+                            Gum gum = new Gum(itemName, itemPrice, itemType, inventoryCount);
+                            inventoryDict.Add(itemRow, gum);
+                        }
+                        else if(itemType == "Drink")
+                        {
+                            Drink drink = new Drink(itemName, itemPrice, itemType, inventoryCount);
+                            inventoryDict.Add(itemRow, drink);
+                        }
+                        else if (itemType == "Chip")
+                        {
+                            Chip chip = new Chip(itemName, itemPrice, itemType, inventoryCount);
+                            inventoryDict.Add(itemRow, chip);
+                        }
+                        else if (itemType == "Candy")
+                        {
+                            Candy candy = new Candy(itemName, itemPrice, itemType, inventoryCount);
+                            inventoryDict.Add(itemRow, candy);
+                        }
                     }
                 }
             }
